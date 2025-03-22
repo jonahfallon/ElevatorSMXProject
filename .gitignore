@@ -1,1 +1,7 @@
 /pack/
+.classpath
+bin/
+.project
+.metadata
+*.class
+.settings/
