@@ -32,7 +32,7 @@ public class Elevator {
 
         String output = totalTravelTime + "\n" + visitedFloors.toString().replaceAll("[\\[\\] ]", "");
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("files/output.txt"))) {
             writer.write(output);
         } catch (IOException e) {
             System.err.println("Error writing to output file.");
@@ -75,7 +75,7 @@ public class Elevator {
     public static void main(String[] args) {
         Elevator elevator = new Elevator(1, CallType.SINGLE); // Default start at floor 1
         
-        List<Integer> floorsToVisit = readInputFromFile("input.txt", elevator);
+        List<Integer> floorsToVisit = readInputFromFile("files/input.txt", elevator);
         
         if (!floorsToVisit.isEmpty()) {
             elevator.calcTravel(floorsToVisit);

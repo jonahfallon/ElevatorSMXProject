@@ -11,7 +11,7 @@ public class ElevatorTests {
     public void givenTestCase() {
         Elevator elevator = new Elevator(1, null); // Default start floor
         
-        List<Integer> floorsToVisit = Elevator.readInputFromFile("input.txt", elevator);
+        List<Integer> floorsToVisit = Elevator.readInputFromFile("files/input.txt", elevator);
         
         int travelTime = elevator.calcTravel(floorsToVisit);
         
@@ -22,7 +22,7 @@ public class ElevatorTests {
     public void edgeCases() {
         Elevator elevator = new Elevator(1, null);
         
-        List<Integer> floorsToVisit = Elevator.readInputFromFile("emptyInput.txt", elevator); // File with just a start floor
+        List<Integer> floorsToVisit = Elevator.readInputFromFile("files/emptyInput.txt", elevator); // File with just a start floor
         
         int travelTime = elevator.calcTravel(floorsToVisit);
         
@@ -34,13 +34,13 @@ public class ElevatorTests {
     @Test
     public void singleFloorTest() {
         Elevator elevator = new Elevator(1, CallType.UP_DOWN);
-        List<Integer> floorsToVisit = Elevator.readInputFromFile("singleFloorInput.txt", elevator); // File with start=5, floor=5
+        List<Integer> floorsToVisit = Elevator.readInputFromFile("files/singleFloorInput.txt", elevator); // File with start=5, floor=5
         
         int travelTime = elevator.calcTravel(floorsToVisit);
         
         assertEquals(0, travelTime); // No movement, should return 0 travel time
         
-        floorsToVisit = Elevator.readInputFromFile("dontMove.txt", elevator); // file with same floor repeated
+        floorsToVisit = Elevator.readInputFromFile("files/dontMove.txt", elevator); // file with same floor repeated
         
         travelTime = elevator.calcTravel(floorsToVisit);
         
@@ -50,7 +50,7 @@ public class ElevatorTests {
     @Test
     public void largeTest() {
         Elevator elevator = new Elevator(1, CallType.UP_DOWN);
-        List<Integer> floorsToVisit = Elevator.readInputFromFile("large.txt", elevator); // File with start=1, floor=100
+        List<Integer> floorsToVisit = Elevator.readInputFromFile("files/large.txt", elevator); // File with start=1, floor=100
         
         int travelTime = elevator.calcTravel(floorsToVisit);
         
