@@ -61,8 +61,11 @@ public class Elevator {
                 floorsToVisit.add(Integer.parseInt(s.trim()));
             }
         } catch (FileNotFoundException e) {
+        	
             System.err.println("Error: Input file not found");
+            
         } catch (Exception e) {
+        	
             System.err.println("Error reading input file: " + e.getMessage());
         }
 

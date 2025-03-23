@@ -26,23 +26,31 @@ public class ElevatorTests {
         
         int travelTime = elevator.calcTravel(floorsToVisit);
         
-        assertEquals(0, travelTime); // No floors to visit, travel time should be 0
+        assertEquals(0, travelTime); // Empty list, should return 0
+ 
+       
     }
     
     @Test
     public void singleFloorTest() {
         Elevator elevator = new Elevator(1, CallType.UP_DOWN);
-        List<Integer> floorsToVisit = Elevator.readInputFromFile("single_floor_input.txt", elevator); // File with start=5, floor=5
+        List<Integer> floorsToVisit = Elevator.readInputFromFile("singleFloorInput.txt", elevator); // File with start=5, floor=5
         
         int travelTime = elevator.calcTravel(floorsToVisit);
         
         assertEquals(0, travelTime); // No movement, should return 0 travel time
+        
+        floorsToVisit = Elevator.readInputFromFile("dontMove.txt", elevator); // file with same floor repeated
+        
+        travelTime = elevator.calcTravel(floorsToVisit);
+        
+        assertEquals(0, travelTime); // 0, doesn't move from floor 1
     }
     
     @Test
-    public void largeJumpTest() {
+    public void largeTest() {
         Elevator elevator = new Elevator(1, CallType.UP_DOWN);
-        List<Integer> floorsToVisit = Elevator.readInputFromFile("large_jump_input.txt", elevator); // File with start=1, floor=100
+        List<Integer> floorsToVisit = Elevator.readInputFromFile("large.txt", elevator); // File with start=1, floor=100
         
         int travelTime = elevator.calcTravel(floorsToVisit);
         
