@@ -10,15 +10,23 @@ import java.util.*;
  */
 public class Elevator {
     
-    private int currFloor;
-    private static final int FLOOR_TRAVEL_TIME = 10;
-    private CallType buttonType;
+    private int currFloor; // tracks the floor the elevator is left that
+    private static final int FLOOR_TRAVEL_TIME = 10; // constant time for travel between floors
+    private CallType buttonType; // UNIMPLEMENTED: would represent the type of call button on a floor
 
-    public Elevator(int startFloor, CallType buttonType) {
+    /**
+     * Constructor
+     * @param startFloor for elevator
+     */
+    public Elevator(int startFloor) {
         this.currFloor = startFloor;
-        this.buttonType = buttonType;
     }
 
+    /**
+     * Calculates the travel time for the elevator to visit all floors in order
+     * @param floors - list of floors to visit
+     * @return returns the travel time to visit all floors and writes to output.txt
+     */
     public int calcTravel(List<Integer> floors) {
         int totalTravelTime = 0;
         List<Integer> visitedFloors = new ArrayList<>();
@@ -51,6 +59,7 @@ public class Elevator {
      * @param elevator The Elevator object whose starting floor will be updated.
      * @return A list of floors to visit.
      */
+    
     public static List<Integer> readInputFromFile(String filename, Elevator elevator) {
         List<Integer> floorsToVisit = new ArrayList<>();
         
@@ -73,7 +82,7 @@ public class Elevator {
     }
 
     public static void main(String[] args) {
-        Elevator elevator = new Elevator(1, CallType.SINGLE); // Default start at floor 1
+        Elevator elevator = new Elevator(1); // Default start at floor 1
         
         List<Integer> floorsToVisit = readInputFromFile("files/input.txt", elevator);
         
